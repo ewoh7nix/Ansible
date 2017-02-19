@@ -1,0 +1,17 @@
+- name: Install MySQL packages
+  apt: name={{ item }} state=present force=yes
+  with_items:
+    - mysql-server
+    - python-mysqldb
+
+- name: Add wordpress database
+  mysql_db:
+    name: wordpress
+    state: present
+
+- name: Add new user
+  mysql_user:
+    name: wp
+    password: wp12345
+    priv: '*.*:ALL'
+    state: present

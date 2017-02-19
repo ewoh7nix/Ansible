@@ -1,0 +1,15 @@
+- name: Install Wordpress
+  hosts: all
+  user: vagrant
+  become: yes
+  gather_facts: yes
+
+  vars:
+    - mysql_user: root
+    - mysql_password: root
+
+  roles:
+    - { role: nginx }
+    - { role: mysql }
+    - { role: wordpress }
+

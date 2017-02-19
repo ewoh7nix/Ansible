@@ -1,0 +1,26 @@
+- name: Download latest wordpress from internet
+  get_url:
+    url: https://wordpress.org/latest.zip
+    dest: /tmp/wordpress.zip
+    mode: 0644
+
+- name: Create directory /var/www
+  file:
+    path: /var/www
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+
+- name: Install unzip packages
+  apt: name=unzip state=present
+
+- name: Extract wordpress
+  unarchive:
+    src: /tmp/wordpress.zip
+    dest: /var/www
+    remote_src: True
+    owner: www-data
+    group: www-data
+    mode: 0755
+  notify: restart nginx

@@ -1,2 +1,2 @@
 # Ansible
-Ansible script to automate installation
+Ansible scripts to automate installation
