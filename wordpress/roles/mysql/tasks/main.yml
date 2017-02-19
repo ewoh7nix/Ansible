@@ -4,6 +4,17 @@
     - mysql-server
     - python-mysqldb
 
+- name: Create .my.cnf for setting mysql root password
+  local_action:
+    module: lineinfile
+    path: ~/.my.cnf
+    state: present
+    line: '{{ item }}'
+  with_items:
+    - '[client]'
+    - 'user=root'
+    - 'password='
+
 - name: Add wordpress database
   mysql_db:
     name: wordpress
