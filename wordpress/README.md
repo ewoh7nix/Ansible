@@ -4,6 +4,7 @@ Requirements:
 - Install Ansible - pip install ansible
 
 How to run:
+
 $ cd wordpress; vagrant up
 
 See the ansible roles for mysql user & password.
