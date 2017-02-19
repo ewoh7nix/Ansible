@@ -5,6 +5,7 @@ Requirements:
 
 How to run:
 
-$ cd wordpress; vagrant up
+$ vagrant up
+$ vagrant provision
 
 See the ansible roles for mysql user & password.
