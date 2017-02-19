@@ -5,7 +5,6 @@ Requirements:
 
 How to run:
 
-$ vagrant up
-$ vagrant provision
+$ vagrant up && vagrant provision
 
 See the ansible roles for mysql user & password.
