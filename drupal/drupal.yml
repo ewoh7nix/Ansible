@@ -1,0 +1,10 @@
+- name: Install Drupal
+  hosts: all
+  user: vagrant
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - { role: nginx }
+    - { role: mysql }
+    - { role: drupal }
