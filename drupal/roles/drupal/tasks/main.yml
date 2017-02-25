@@ -1,7 +1,7 @@
-- name: Download latest wordpress from internet
+- name: Download latest drupal from internet
   get_url:
-    url: https://wordpress.org/latest.zip
-    dest: /tmp/wordpress.zip
+    url: https://ftp.drupal.org/files/projects/drupal-{{ version }}.tar.gz 
+    dest: /tmp/drupal.tar.gz
     mode: 0644
 
 - name: Create directory /var/www
@@ -12,12 +12,15 @@
     mode: 0755
     state: directory
 
-- name: Install unzip packages
-  apt: name=unzip state=present
+- name: Install targz packages
+  apt: name={{ item }} state=present
+  with_items:
+    - tar
+    - gzip
 
-- name: Extract wordpress
+- name: Extract drupal
   unarchive:
-    src: /tmp/wordpress.zip
+    src: /tmp/drupal.tar.gz
     dest: /var/www
     remote_src: True
     owner: www-data

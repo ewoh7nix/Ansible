@@ -1,4 +1,4 @@
-# Wordpress
+# Drupal 
 Requirements:
 - Install Vagrant from http://www.vagrantup.com
 - Install Ansible - pip install ansible

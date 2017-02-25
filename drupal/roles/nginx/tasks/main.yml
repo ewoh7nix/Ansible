@@ -16,14 +16,14 @@
 
 - name: Copy nginx vhost to /etc/nginx/sites-available
   template:
-    src: wordpress.conf.j2
-    dest: /etc/nginx/sites-available/wordpress.conf
+    src: drupal.conf.j2
+    dest: /etc/nginx/sites-available/drupal.conf
     owner: root
     group: root
     mode: 0644
 
-- name: Enable wordpress virtual host
+- name: Enable drupal virtual host
   file:
-    src: /etc/nginx/sites-available/wordpress.conf
-    dest: /etc/nginx/sites-enabled/wordpress.conf
+    src: /etc/nginx/sites-available/drupal.conf
+    dest: /etc/nginx/sites-enabled/drupal.conf
     state: link

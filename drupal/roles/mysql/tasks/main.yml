@@ -15,14 +15,14 @@
     - 'user=root'
     - 'password='
 
-- name: Add wordpress database
+- name: Add drupal database
   mysql_db:
-    name: wordpress
+    name: drupal
     state: present
 
 - name: Add new user
   mysql_user:
-    name: wp
-    password: wp12345
+    name: drupal
+    password: drupal12345
     priv: '*.*:ALL'
     state: present
